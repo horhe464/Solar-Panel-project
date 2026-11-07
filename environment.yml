@@ -1,0 +1,19 @@
+name: solar
+channels:
+  - conda-forge
+dependencies:
+  - python=3.14.7
+  - ipykernel
+  - pandas
+  - geopandas
+  - matplotlib
+  - rasterio
+  - osmnx
+  - osmium-tool
+  - pyogrio
+  - gdal
+  - xarray
+  - xarray-spatial
+  - rioarray
+  - pyrosm
+  - leafmap

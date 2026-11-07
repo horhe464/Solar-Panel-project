@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_f27c434c2955b62fc1198112ce42be27 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    
+                    <style>
+                        .foliumtooltip {
+                            
+                        }
+                       .foliumtooltip table{
+                            margin: auto;
+                        }
+                        .foliumtooltip tr{
+                            text-align: left;
+                        }
+                        .foliumtooltip th{
+                            padding: 2px; padding-right: 8px;
+                        }
+                    </style>
+            
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_f27c434c2955b62fc1198112ce42be27" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_f27c434c2955b62fc1198112ce42be27 = L.map(
+                "map_f27c434c2955b62fc1198112ce42be27",
+                {
+                    center: [46.925882751080074, 22.16097846160323],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 10,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+            L.control.scale().addTo(map_f27c434c2955b62fc1198112ce42be27);
+
+            
+
+        
+    
+            var tile_layer_1dc59bdb5b5923d1fb031c10e3b8d441 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_1dc59bdb5b5923d1fb031c10e3b8d441.addTo(map_f27c434c2955b62fc1198112ce42be27);
+        
+    
+            map_f27c434c2955b62fc1198112ce42be27.fitBounds(
+                [[46.483889601092415, 21.63833501188758], [47.367875901067734, 22.68362191131888]],
+                {}
+            );
+        
+    
+        function geo_json_7d08db400e40a7f85ade0d68c212aea2_styler(feature) {
+            switch(feature.id) {
+                default:
+                    return {"fillOpacity": 0.5, "weight": 2};
+            }
+        }
+        function geo_json_7d08db400e40a7f85ade0d68c212aea2_highlighter(feature) {
+            switch(feature.id) {
+                default:
+                    return {"fillOpacity": 0.75};
+            }
+        }
+        function geo_json_7d08db400e40a7f85ade0d68c212aea2_pointToLayer(feature, latlng) {
+            var opts = {
+  "stroke": true,
+  "color": "#3388ff",
+  "weight": 3,
+  "opacity": 1.0,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#3388ff",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "radius": 2,
+};
+            
+            let style = geo_json_7d08db400e40a7f85ade0d68c212aea2_styler(feature)
+            Object.assign(opts, style)
+            
+            return new L.CircleMarker(latlng, opts)
+        }
+
+        function geo_json_7d08db400e40a7f85ade0d68c212aea2_onEachFeature(feature, layer) {
+
+            layer.on({
+                mouseout: function(e) {
+                    if(typeof e.target.setStyle === "function"){
+                            geo_json_7d08db400e40a7f85ade0d68c212aea2.resetStyle(e.target);
+                    }
+                },
+                mouseover: function(e) {
+                    if(typeof e.target.setStyle === "function"){
+                        const highlightStyle = geo_json_7d08db400e40a7f85ade0d68c212aea2_highlighter(e.target.feature)
+                        e.target.setStyle(highlightStyle);
+                    }
+                },
+            });
+        };
+        var geo_json_7d08db400e40a7f85ade0d68c212aea2 = L.geoJson(null, {
+                onEachFeature: geo_json_7d08db400e40a7f85ade0d68c212aea2_onEachFeature,
+            
+                style: geo_json_7d08db400e40a7f85ade0d68c212aea2_styler,
+                pointToLayer: geo_json_7d08db400e40a7f85ade0d68c212aea2_pointToLayer,
+            ...{
+}
+        });
+
+        function geo_json_7d08db400e40a7f85ade0d68c212aea2_add (data) {
+            geo_json_7d08db400e40a7f85ade0d68c212aea2
+                .addData(data);
+        }
+            geo_json_7d08db400e40a7f85ade0d68c212aea2_add({"bbox": [21.63833501188758, 46.483889601092415, 22.68362191131888, 47.367875901067734], "features": [{"bbox": [21.94622091174079, 47.0201228011309, 21.949375211738825, 47.023117901130504], "geometry": {"coordinates": [[[21.948624211739446, 47.022456001130365], [21.94783031173986, 47.02231340113052], [21.94751911174012, 47.023117901130504], [21.94622091174079, 47.02289120113068], [21.946725311740387, 47.02151900113076], [21.94680571174031, 47.0213004011308], [21.946717111740362, 47.021291501130804], [21.946660811740387, 47.0212858011308], [21.947073911740038, 47.0201228011309], [21.949375211738825, 47.0205617011305], [21.948624211739446, 47.022456001130365]]], "type": "Polygon"}, "id": "0", "properties": {"id": 191363648, "osm_type": "way", "power": "substation", "substation": "transmission", "tags": "{\"barrier\":\"fence\",\"fixme\":\"name\",\"name\":\"Oradea Sud\",\"operator\":\"TEL\",\"voltage\":\"400000;110000\"}", "timestamp": 1738088395, "version": 7, "visible": true}, "type": "Feature"}, {"bbox": [22.52946091144855, 47.26542570101238, 22.530266911448095, 47.265879601012216], "geometry": {"coordinates": [[[22.52946091144855, 47.26572900101234], [22.52961251144844, 47.26542570101238], [22.530266911448095, 47.26557630101224], [22.53011541144821, 47.265879601012216], [22.52946091144855, 47.26572900101234]]], "type": "Polygon"}, "id": "1", "properties": {"id": 198369138, "osm_type": "way", "power": "substation", "substation": "transmission", "tags": "{\"fixme\":\"name\",\"source\":\"Bing\",\"voltage\":\"110000\"}", "timestamp": 1610286012, "version": 4, "visible": true}, "type": "Feature"}, {"bbox": [22.531363811447694, 47.266252401011904, 22.532798511446817, 47.26761690101167], "geometry": {"coordinates": [[[22.531363811447694, 47.26737310101184], [22.53192751144726, 47.266252401011904], [22.53271071144686, 47.266436701011784], [22.532798511446817, 47.26656110101174], [22.532573411447007, 47.26700860101173], [22.532647811446978, 47.267135801011705], [22.532430511447142, 47.26761690101167], [22.531363811447694, 47.26737310101184]]], "type": "Polygon"}, "id": "2", "properties": {"id": 198369139, "osm_type": "way", "power": "substation", "substation": "transmission", "tags": "{\"barrier\":\"fence\",\"fixme\":\"name\",\"voltage\":\"110000\"}", "timestamp": 1610286012, "version": 4, "visible": true}, "type": "Feature"}, {"bbox": [22.68259981131941, 46.830551201041466, 22.68362191131888, 46.83116960104154], "geometry": {"coordinates": [[[22.68280531131934, 46.83116960104154], [22.68259981131941, 46.83072970104158], [22.68341651131895, 46.830551201041466], [22.68362191131888, 46.8309911010414], [22.68280531131934, 46.83116960104154]]], "type": "Polygon"}, "id": "3", "properties": {"id": 203087787, "osm_type": "way", "power": "substation", "substation": null, "tags": "{\"source\":\"Bing\"}", "timestamp": 1528363921, "version": 2, "visible": true}, "type": "Feature"}, {"bbox": [22.069941611678086, 47.06970410110572, 22.070356211677858, 47.06987640110569], "geometry": {"coordinates": [[[22.069948611678097, 47.06986590110572], [22.069941611678086, 47.069755801105785], [22.07023961167792, 47.069705001105724], [22.070278911677907, 47.06970470110575], [22.070356211677858, 47.06970410110572], [22.070335211677886, 47.06987640110569], [22.069948611678097, 47.06986590110572]]], "type": "Polygon"}, "id": "4", "properties": {"id": 203087789, "osm_type": "way", "power": "substation", "substation": null, "tags": "{\"source\":\"Bing\",\"voltage\":\"110000\"}", "timestamp": 1560953552, "version": 3, "visible": true}, "type": "Feature"}, {"bbox": [22.469695711402238, 46.498512101113995, 22.472073711400853, 46.50006410111356], "geometry": {"coordinates": [[[22.469695711402238, 46.49975870111389], [22.470103411401904, 46.498512101113995], [22.472073711400853, 46.49881750111363], [22.471665911401196, 46.50006410111356], [22.469695711402238, 46.49975870111389]]], "type": "Polygon"}, "id": "5", "properties": {"id": 203861857, "osm_type": "way", "power": "substation", "substation": null, "tags": "{\"voltage\":\"110000\"}", "timestamp": 1560521836, "version": 3, "visible": true}, "type": "Feature"}, {"bbox": [22.469666411405818, 46.53585500110927, 22.471566511404763, 46.53698550110922], "geometry": {"coordinates": [[[22.469666411405818, 46.53641190110943], [22.470223011405455, 46.535857501109405], [22.47069691140522, 46.536120701109304], [22.470983911405046, 46.53585500110927], [22.471566511404763, 46.53618380110916], [22.470671911405322, 46.53698550110922], [22.469666411405818, 46.53641190110943]]], "type": "Polygon"}, "id": "6", "properties": {"id": 203861858, "osm_type": "way", "power": "substation", "substation": null, "tags": "{\"source\":\"Bing\",\"voltage\":\"110000\"}", "timestamp": 1560521836, "version": 3, "visible": true}, "type": "Feature"}, {"bbox": [22.41416221144355, 46.61241160110851, 22.415725511442634, 46.61358630110844], "geometry": {"coordinates": [[[22.41416221144355, 46.613358201108554], [22.415020511443, 46.61241160110851], [22.415725511442634, 46.61271320110837], [22.415435011442828, 46.61303370110841], [22.415263111442915, 46.61296010110843], [22.414695411443283, 46.61358630110844], [22.41416221144355, 46.613358201108554]]], "type": "Polygon"}, "id": "7", "properties": {"id": 203861861, "osm_type": "way", "power": "substation", "substation": null, "tags": "{\"source\":\"Bing\",\"voltage\":\"110000\"}", "timestamp": 1560519992, "version": 3, "visible": true}, "type": "Feature"}, {"bbox": [21.8905808117776, 47.08172160113184, 21.89323171177616, 47.083389301131824], "geometry": {"coordinates": [[[21.89139711177724, 47.083389301131824], [21.8905808117776, 47.08252510113202], [21.892415411776508, 47.08172160113184], [21.89323171177616, 47.08258590113157], [21.89139711177724, 47.083389301131824]]], "type": "Polygon"}, "id": "8", "properties": {"id": 204785568, "osm_type": "way", "power": "substation", "substation": null, "tags": "{\"voltage\":\"110000\"}", "timestamp": 1580007791, "version": 6, "visible": true}, "type": "Feature"}, {"bbox": [21.826821111811476, 47.07254880114312, 21.827499811811144, 47.07308550114312], "geometry": {"coordinates": [[[21.82693721181146, 47.07308550114312], [21.826821111811476, 47.072612901143174], [21.827383711811166, 47.07254880114312], [21.827499811811144, 47.07302140114304], [21.82693721181146, 47.07308550114312]]], "type": "Polygon"}, "id": "9", "properties": {"id": 204785571, "osm_type": "way", "power": "substation", "substation": null, "tags": "{\"source\":\"Bing\",\"voltage\":\"110000\"}", "timestamp": 1560519992, "version": 3, "visible": true}, "type": "Feature"}, {"bbox": [21.63833501188758, 46.81107670120527, 21.639633811886874, 46.81188410120526], "geometry": {"coordinates": [[[21.63833501188758, 46.81141780120537], [21.638875811887253, 46.811185101205346], [21.638906611887244, 46.811218601205326], [21.639236411887047, 46.81107670120527], [21.639633811886874, 46.81150950120521], [21.638763211887383, 46.81188410120526], [21.63833501188758, 46.81141780120537]]], "type": "Polygon"}, "id": "10", "properties": {"id": 204785578, "osm_type": "way", "power": "substation", "substation": null, "tags": "{\"source\":\"Bing\",\"voltage\":\"110000\"}", "timestamp": 1560519992, "version": 3, "visible": true}, "type": "Feature"}, {"bbox": [22.081223511704305, 47.36732990106768, 22.082278011703757, 47.367875901067734], "geometry": {"coordinates": [[[22.081329611704287, 47.367875901067734], [22.081223511704305, 47.36743450106777], [22.081756511704, 47.36737570106773], [22.082171811703777, 47.36732990106768], [22.082278011703757, 47.36777130106763], [22.081329611704287, 47.367875901067734]]], "type": "Polygon"}, "id": "11", "properties": {"id": 205781250, "osm_type": "way", "power": "substation", "substation": "transmission", "tags": "{\"barrier\":\"fence\",\"fixme\":\"name\",\"source\":\"Bing\"}", "timestamp": 1612355248, "version": 4, "visible": true}, "type": "Feature"}, {"bbox": [22.352140511519966, 47.03105270106701, 22.353908411519065, 47.03200130106711], "geometry": {"coordinates": [[[22.352140511519966, 47.03125260106722], [22.353702111519098, 47.03105270106701], [22.353908411519065, 47.03180130106688], [22.352346811519926, 47.03200130106711], [22.352140511519966, 47.03125260106722]]], "type": "Polygon"}, "id": "12", "properties": {"id": 230501107, "osm_type": "way", "power": "substation", "substation": null, "tags": "{\"voltage\":\"110000\"}", "timestamp": 1560953552, "version": 3, "visible": true}, "type": "Feature"}, {"bbox": [22.38455601152263, 47.22066270103938, 22.385963211521837, 47.221668701039235], "geometry": {"coordinates": [[[22.38455601152263, 47.22133130103944], [22.385182111522212, 47.22066270103938], [22.385963211521837, 47.22100020103923], [22.38533701152224, 47.221668701039235], [22.38455601152263, 47.22133130103944]]], "type": "Polygon"}, "id": "13", "properties": {"id": 254905871, "osm_type": "way", "power": "substation", "substation": null, "tags": "{\"voltage\":\"110000\"}", "timestamp": 1560953552, "version": 3, "visible": true}, "type": "Feature"}, {"bbox": [22.62273561131754, 46.483889601092415, 22.623480911317177, 46.484496101092354], "geometry": {"coordinates": [[[22.62328351131724, 46.483889601092415], [22.623480911317177, 46.4843868010923], [22.62294471131748, 46.484496101092354], [22.62273561131754, 46.483982901092446], [22.62328351131724, 46.483889601092415]]], "type": "Polygon"}, "id": "14", "properties": {"id": 307296488, "osm_type": "way", "power": "substation", "substation": "transmission", "tags": "{\"barrier\":\"fence\",\"source\":\"Bing\",\"voltage\":\"110000\"}", "timestamp": 1560521836, "version": 2, "visible": true}, "type": "Feature"}, {"bbox": [22.64348911131793, 46.603691501074785, 22.64369111131783, 46.60383510107478], "geometry": {"coordinates": [[[22.64369111131783, 46.60379630107478], [22.64363001131787, 46.60383510107478], [22.64348911131793, 46.603730301074826], [22.643550211317894, 46.603691501074785], [22.643638211317853, 46.60375700107476], [22.64369111131783, 46.60379630107478]]], "type": "Polygon"}, "id": "15", "properties": {"id": 363817625, "osm_type": "way", "power": "substation", "substation": null, "tags": "{\"building\":\"yes\"}", "timestamp": 1438635475, "version": 1, "visible": true}, "type": "Feature"}, {"bbox": [22.30293981154984, 47.060090701071175, 22.303311511549644, 47.06024510107121], "geometry": {"coordinates": [[[22.303067011549775, 47.06009570107125], [22.30330491154964, 47.060090701071175], [22.303311511549644, 47.06023740107116], [22.30294431154985, 47.06024510107121], [22.30293981154984, 47.06014440107123], [22.303067011549775, 47.06009570107125]]], "type": "Polygon"}, "id": "16", "properties": {"id": 493039537, "osm_type": "way", "power": "substation", "substation": null, "tags": "{\"voltage\":\"110000\"}", "timestamp": 1560953552, "version": 2, "visible": true}, "type": "Feature"}, {"bbox": [22.20659411160455, 47.080199301083425, 22.20727501160421, 47.08063740108342], "geometry": {"coordinates": [[[22.206667811604547, 47.080578101083425], [22.20659411160455, 47.08025260108349], [22.207102311604263, 47.080199301083425], [22.20720111160422, 47.08027070108342], [22.20727501160421, 47.08058040108339], [22.2067597116045, 47.08063740108342], [22.206667811604547, 47.080578101083425]]], "type": "Polygon"}, "id": "17", "properties": {"id": 493042118, "osm_type": "way", "power": "substation", "substation": null, "tags": "{\"voltage\":\"110000\"}", "timestamp": 1560953552, "version": 2, "visible": true}, "type": "Feature"}, {"bbox": [22.147973511635126, 47.06668720109413, 22.14815251163501, 47.066805801094134], "geometry": {"coordinates": [[[22.148123111635048, 47.06679030109413], [22.148091511635066, 47.0667891010941], [22.148090111635057, 47.066805801094134], [22.147973511635126, 47.06680140109414], [22.147982911635108, 47.06668720109413], [22.14815251163501, 47.0666937010941], [22.148144511635042, 47.066791101094104], [22.148123111635048, 47.06679030109413]]], "type": "Polygon"}, "id": "18", "properties": {"id": 494686931, "osm_type": "way", "power": "substation", "substation": null, "tags": null, "timestamp": 1495200297, "version": 1, "visible": true}, "type": "Feature"}, {"bbox": [22.14812151163505, 47.06679030109413, 22.148223111634994, 47.06681340109409], "geometry": {"coordinates": [[[22.14812151163505, 47.06680960109413], [22.148123111635048, 47.06679030109413], [22.148144511635042, 47.066791101094104], [22.148223111634994, 47.06679410109409], [22.14822151163499, 47.06681340109409], [22.14812151163505, 47.06680960109413]]], "type": "Polygon"}, "id": "19", "properties": {"id": 494686932, "osm_type": "way", "power": "substation", "substation": null, "tags": null, "timestamp": 1495200297, "version": 1, "visible": true}, "type": "Feature"}, {"bbox": [21.938923811746495, 47.038894401129795, 21.939121511746386, 47.03900150112981], "geometry": {"coordinates": [[[21.938923811746495, 47.038931301129864], [21.939087511746393, 47.038894401129795], [21.939121511746386, 47.03896460112981], [21.938957811746484, 47.03900150112981], [21.938923811746495, 47.038931301129864]]], "type": "Polygon"}, "id": "20", "properties": {"id": 525633865, "osm_type": "way", "power": "substation", "substation": null, "tags": "{\"building\":\"yes\",\"name\":\"Salca\",\"operator\":\"OTL\"}", "timestamp": 1505743115, "version": 1, "visible": true}, "type": "Feature"}, {"bbox": [21.92589771175552, 47.05662660112968, 21.926336611755286, 47.056981001129635], "geometry": {"coordinates": [[[21.92589771175552, 47.056717401129696], [21.926212211755335, 47.05662660112968], [21.926336611755286, 47.05684970112959], [21.926284811755313, 47.05686140112962], [21.926300611755313, 47.05689980112958], [21.926039911755467, 47.056981001129635], [21.925960411755497, 47.05684850112965], [21.925979511755475, 47.05684220112965], [21.92589771175552, 47.056717401129696]]], "type": "Polygon"}, "id": "21", "properties": {"id": 525633867, "osm_type": "way", "power": "substation", "substation": null, "tags": "{\"building\":\"yes\",\"name\":\"Zamfirescu\",\"operator\":\"OTL\"}", "timestamp": 1580018902, "version": 3, "visible": true}, "type": "Feature"}, {"bbox": [21.93440201175232, 47.070385901126684, 21.93456561175221, 47.07048180112668], "geometry": {"coordinates": [[[21.934425111752294, 47.070385901126684], [21.93456561175221, 47.07040570112665], [21.934542511752245, 47.07048180112668], [21.93440201175232, 47.070462001126664], [21.934425111752294, 47.070385901126684]]], "type": "Polygon"}, "id": "22", "properties": {"id": 525633868, "osm_type": "way", "power": "substation", "substation": null, "tags": "{\"alt_name\":\"Gara\",\"building\":\"yes\",\"name\":\"Pia\\u021Ba Bucure\\u0219ti\",\"operator\":\"OTL\"}", "timestamp": 1691059625, "version": 4, "visible": true}, "type": "Feature"}, {"bbox": [21.90718641176773, 47.075165701130324, 21.907409211767607, 47.075308001130296], "geometry": {"coordinates": [[[21.90718641176773, 47.07521920113034], [21.90734431176763, 47.075165701130324], [21.907409211767607, 47.0752545011303], [21.907251411767703, 47.075308001130296], [21.90718641176773, 47.07521920113034]]], "type": "Polygon"}, "id": "23", "properties": {"id": 525633869, "osm_type": "way", "power": "substation", "substation": null, "tags": "{\"building\":\"yes\",\"name\":\"Vest\",\"operator\":\"OTL\"}", "timestamp": 1580006387, "version": 3, "visible": true}, "type": "Feature"}, {"bbox": [21.91290411176508, 47.07962330112887, 21.913207911764907, 47.079797801128876], "geometry": {"coordinates": [[[21.912974211765043, 47.079797801128876], [21.91290411176508, 47.07971460112893], [21.913137711764936, 47.07962330112887], [21.913207911764907, 47.07970650112885], [21.912974211765043, 47.079797801128876]]], "type": "Polygon"}, "id": "24", "properties": {"id": 526790381, "osm_type": "way", "power": "substation", "substation": null, "tags": "{\"building\":\"yes\"}", "timestamp": 1749887767, "version": 5, "visible": true}, "type": "Feature"}, {"bbox": [22.3169738115728, 47.34255290103495, 22.31818471157216, 47.34334570103478], "geometry": {"coordinates": [[[22.31777141157243, 47.34334570103478], [22.3169738115728, 47.34287330103494], [22.317387011572546, 47.34255290103495], [22.31752551157247, 47.342634901034934], [22.31818471157216, 47.34302520103478], [22.31777141157243, 47.34334570103478]]], "type": "Polygon"}, "id": "25", "properties": {"id": 675657140, "osm_type": "way", "power": "substation", "substation": "transmission", "tags": "{\"barrier\":\"fence\",\"fixme\":\"name\",\"voltage\":\"110000\"}", "timestamp": 1610286012, "version": 3, "visible": true}, "type": "Feature"}, {"bbox": [21.984117311720837, 47.02972560112394, 21.985984111719763, 47.03018630112366], "geometry": {"coordinates": [[[21.984117311720837, 47.03015340112389], [21.984138811720765, 47.02972560112394], [21.985984111719763, 47.029753001123645], [21.98595461171981, 47.03012420112361], [21.985898311719858, 47.03018630112366], [21.98539671172013, 47.03015710112372], [21.985066811720316, 47.030142501123755], [21.984777111720472, 47.03013150112382], [21.98451161172061, 47.03013150112385], [21.984117311720837, 47.03015340112389]]], "type": "Polygon"}, "id": "26", "properties": {"id": 697156434, "osm_type": "way", "power": "substation", "substation": null, "tags": "{\"voltage\":\"110000\"}", "timestamp": 1560519990, "version": 1, "visible": true}, "type": "Feature"}, {"bbox": [21.97710171172566, 47.03932530112383, 21.978045211725178, 47.04003960112368], "geometry": {"coordinates": [[[21.97710171172566, 47.03951590112385], [21.977486011725425, 47.03932530112383], [21.978045211725178, 47.03984890112363], [21.97766081172541, 47.04003960112368], [21.97710171172566, 47.03951590112385]]], "type": "Polygon"}, "id": "27", "properties": {"id": 697156435, "osm_type": "way", "power": "substation", "substation": null, "tags": "{\"voltage\":\"110000\"}", "timestamp": 1560519990, "version": 1, "visible": true}, "type": "Feature"}, {"bbox": [21.930290711751372, 47.04031620113101, 21.930607711751197, 47.040527901131], "geometry": {"coordinates": [[[21.930416211751318, 47.040527901131], [21.930290711751372, 47.040414901131], [21.93048221175126, 47.04031620113101], [21.930607711751197, 47.040429301130956], [21.930416211751318, 47.040527901131]]], "type": "Polygon"}, "id": "28", "properties": {"id": 697156446, "osm_type": "way", "power": "substation", "substation": null, "tags": "{\"voltage\":\"110000\"}", "timestamp": 1560519990, "version": 1, "visible": true}, "type": "Feature"}, {"bbox": [21.911520711763888, 47.061106401131305, 21.912616311763312, 47.06192130113125], "geometry": {"coordinates": [[[21.911881411763733, 47.06192130113125], [21.911520711763888, 47.06133940113136], [21.912189911763484, 47.061106401131305], [21.912255611763456, 47.06118590113125], [21.91205311176358, 47.06126360113131], [21.912267711763484, 47.06152850113125], [21.912474211763367, 47.061539501131215], [21.912616311763312, 47.061734101131165], [21.912113411763606, 47.06191490113118], [21.911881411763733, 47.06192130113125]]], "type": "Polygon"}, "id": "29", "properties": {"id": 697156448, "osm_type": "way", "power": "substation", "substation": null, "tags": "{\"source\":\"Bing\",\"voltage\":\"110000\"}", "timestamp": 1580006350, "version": 3, "visible": true}, "type": "Feature"}, {"bbox": [21.935823211761203, 47.1602638011154, 21.9368953117606, 47.16088440111526], "geometry": {"coordinates": [[[21.935823211761203, 47.16066130111541], [21.93605031176104, 47.1602638011154], [21.9368953117606, 47.160486901115235], [21.936668211760768, 47.16088440111526], [21.935823211761203, 47.16066130111541]]], "type": "Polygon"}, "id": "30", "properties": {"id": 698277119, "osm_type": "way", "power": "substation", "substation": null, "tags": "{\"voltage\":\"110000\"}", "timestamp": 1560953550, "version": 1, "visible": true}, "type": "Feature"}, {"bbox": [21.909517011767203, 47.08175030112894, 21.911292711766222, 47.08281520112895], "geometry": {"coordinates": [[[21.909517011767203, 47.082333001129086], [21.910925211766376, 47.08175030112894], [21.911292711766222, 47.08217960112887], [21.909906011767042, 47.08281520112895], [21.909517011767203, 47.082333001129086]]], "type": "Polygon"}, "id": "31", "properties": {"id": 698277121, "osm_type": "way", "power": "substation", "substation": null, "tags": "{\"voltage\":\"110000\"}", "timestamp": 1580016518, "version": 3, "visible": true}, "type": "Feature"}, {"bbox": [22.532486811446947, 47.26536490101191, 22.533279611446442, 47.266162901011796], "geometry": {"coordinates": [[[22.532486811446947, 47.26606170101186], [22.53282051144669, 47.26536490101191], [22.533279611446442, 47.26546610101178], [22.53294591144671, 47.266162901011796], [22.532486811446947, 47.26606170101186]]], "type": "Polygon"}, "id": "32", "properties": {"id": 698277127, "osm_type": "way", "power": "substation", "substation": null, "tags": "{\"voltage\":\"110000\"}", "timestamp": 1560953550, "version": 1, "visible": true}, "type": "Feature"}, {"bbox": [22.147541611635365, 47.066647001094175, 22.147968111635116, 47.06681690109414], "geometry": {"coordinates": [[[22.147541611635365, 47.066791401094164], [22.147560411635347, 47.066685401094226], [22.147705311635256, 47.066647001094175], [22.147968111635116, 47.06665250109414], [22.147944011635143, 47.06681690109414], [22.147541611635365, 47.066791401094164]]], "type": "Polygon"}, "id": "33", "properties": {"id": 698277142, "osm_type": "way", "power": "substation", "substation": null, "tags": "{\"voltage\":\"110000\"}", "timestamp": 1560953550, "version": 1, "visible": true}, "type": "Feature"}, {"bbox": [21.94128551174616, 47.04782790112833, 21.94207101174576, 47.04846420112822], "geometry": {"coordinates": [[[21.94128551174616, 47.04795590112839], [21.941655811745946, 47.04782790112833], [21.94207101174576, 47.048302701128215], [21.941781911745935, 47.04846420112822], [21.94128551174616, 47.04795590112839]]], "type": "Polygon"}, "id": "34", "properties": {"id": 837271340, "osm_type": "way", "power": "substation", "substation": null, "tags": null, "timestamp": 1597450467, "version": 1, "visible": true}, "type": "Feature"}, {"bbox": [22.54160461140801, 46.94702140104871, 22.542691911407456, 46.94776360104858], "geometry": {"coordinates": [[[22.542235211407725, 46.94776360104858], [22.54160461140801, 46.94711780104878], [22.54183301140787, 46.94702140104873], [22.541923611407817, 46.94702140104871], [22.54202141140776, 46.9470486010487], [22.542104811407725, 46.94707830104869], [22.542170011407702, 46.94715500104865], [22.542257011407653, 46.947125301048644], [22.542691911407456, 46.947550801048536], [22.542235211407725, 46.94776360104858]]], "type": "Polygon"}, "id": "35", "properties": {"id": 842427705, "osm_type": "way", "power": "substation", "substation": null, "tags": "{\"addr:city\":\"\\u0218uncuiu\\u0219\",\"landuse\":\"industrial\"}", "timestamp": 1637684997, "version": 3, "visible": true}, "type": "Feature"}, {"bbox": [22.68110311132468, 46.87396780103662, 22.68202911132414, 46.87425760103645], "geometry": {"coordinates": [[[22.68202911132414, 46.873977001036465], [22.682023111324174, 46.87425760103645], [22.68110311132468, 46.87424840103658], [22.681109011324644, 46.87396780103662], [22.68202911132414, 46.873977001036465]]], "type": "Polygon"}, "id": "36", "properties": {"id": 1005669579, "osm_type": "way", "power": "substation", "substation": null, "tags": null, "timestamp": 1637699270, "version": 1, "visible": true}, "type": "Feature"}, {"bbox": [22.397244611494, 47.01773460106203, 22.39761741149377, 47.01804640106197], "geometry": {"coordinates": [[[22.397244611494, 47.018043701062005], [22.39730091149394, 47.01773460106203], [22.39761741149377, 47.017752901061975], [22.397541011493836, 47.01804640106197], [22.397244611494, 47.018043701062005]]], "type": "Polygon"}, "id": "37", "properties": {"id": 1494326753, "osm_type": "way", "power": "substation", "substation": null, "tags": null, "timestamp": 1774879520, "version": 1, "visible": true}, "type": "Feature"}, {"bbox": [21.960425411733894, 47.031177201127456, 21.961157611733512, 47.0316178011273], "geometry": {"coordinates": [[[21.960438811733948, 47.031612301127396], [21.960425411733894, 47.031177201127456], [21.960720411733735, 47.0311790011274], [21.960723111733753, 47.03125770112744], [21.961157611733512, 47.03127230112733], [21.96113081173356, 47.0316178011273], [21.960438811733948, 47.031612301127396]]], "type": "Polygon"}, "id": "38", "properties": {"id": 1494604500, "osm_type": "way", "power": "substation", "substation": null, "tags": null, "timestamp": 1774962410, "version": 1, "visible": true}, "type": "Feature"}, {"bbox": [21.90119461176723, 47.03959930113557, 21.90198981176683, 47.04015250113555], "geometry": {"coordinates": [[[21.90119461176723, 47.039716701135625], [21.90181101176688, 47.03959930113557], [21.90198981176683, 47.04003510113549], [21.901373411767185, 47.04015250113555], [21.90119461176723, 47.039716701135625]]], "type": "Polygon"}, "id": "39", "properties": {"id": 1550312045, "osm_type": "way", "power": "substation", "substation": null, "tags": null, "timestamp": 1786960821, "version": 1, "visible": true}, "type": "Feature"}], "type": "FeatureCollection"});
+
+        
+    
+    geo_json_7d08db400e40a7f85ade0d68c212aea2.bindTooltip(
+    function(layer){
+    let div = L.DomUtil.create('div');
+    
+    let handleObject = feature => {
+        if (feature === null) {
+            return '';
+        } else if (typeof(feature)=='object') {
+            return JSON.stringify(feature);
+        } else {
+            return feature;
+        }
+    }
+    let fields = ["power", "substation", "visible", "id", "timestamp", "version", "tags", "osm_type"];
+    let aliases = ["power", "substation", "visible", "id", "timestamp", "version", "tags", "osm_type"];
+    let table = '<table>' +
+        String(
+        fields.map(
+        (v,i)=>
+        `<tr>
+            <th>${aliases[i]}</th>
+            
+            <td>${handleObject(layer.feature.properties[v])}</td>
+        </tr>`).join(''))
+    +'</table>';
+    div.innerHTML=table;
+    
+    return div
+    }
+    ,{
+  "sticky": true,
+  "className": "foliumtooltip",
+});
+                     
+    
+            geo_json_7d08db400e40a7f85ade0d68c212aea2.addTo(map_f27c434c2955b62fc1198112ce42be27);
+        
+</script>
+</html>
