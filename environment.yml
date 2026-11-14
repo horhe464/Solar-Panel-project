@@ -8,12 +8,9 @@ dependencies:
   - geopandas
   - matplotlib
   - rasterio
-  - osmnx
-  - osmium-tool
   - pyogrio
-  - gdal
   - xarray
   - xarray-spatial
   - rioarray
   - pyrosm
-  - leafmap
+  - openpyxl

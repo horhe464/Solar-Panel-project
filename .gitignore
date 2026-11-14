@@ -5,6 +5,7 @@ cache/
 *.tif
 *.pbf
 
+vizualizare
 vizualizare/harta.html
 vizualizare/plot_test.ipynb
 
@@ -17,5 +18,6 @@ venv/
 .vscode/
 .DS_Store
 Thumbs.db
-
+solar_panel_project.egg-info
 .env
+pyproject.toml

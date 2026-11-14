@@ -1,5 +1,6 @@
 from pathlib import Path
 import geopandas as gpd
+import numpy as np
 import xarray as xr
 import rioxarray
 import xrspatial
@@ -9,7 +10,6 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
 
 def process_rasters(resolution: float = 30.0):
-    """Calculeaza panta (slope.tif) din DEM si reproiecteaza/aliniaza GHI (ghi.tif) la aceeasi rezolutie si grid in EPSG:3844."""
     data_dir = PROJECT_ROOT / "data"
     buffer_path = data_dir / "limita_judet_buffer.gpkg"
     if not buffer_path.exists():
@@ -17,7 +17,6 @@ def process_rasters(resolution: float = 30.0):
 
     limita = gpd.read_file(buffer_path).to_crs("EPSG:3844")
 
-    # 1. DEM -> Slope
     dem_path = PROJECT_ROOT / "raw_data" / "dem.tif"
     dem_ds = xr.open_dataset(dem_path, engine="rasterio")
     dem_ds = dem_ds.rio.reproject(
@@ -30,7 +29,6 @@ def process_rasters(resolution: float = 30.0):
     slope_da.rio.write_crs("EPSG:3844", inplace=True)
     slope_da.rio.to_raster(data_dir / "slope.tif")
 
-    # 2. GHI 
     ghi_path = PROJECT_ROOT / "raw_data" / "GHI.tif"
     ghi_ds = xr.open_dataset(ghi_path, engine="rasterio")
     ghi_ds = ghi_ds.squeeze("band", drop=True).rename({"band_data": "ghi"})

@@ -5,13 +5,12 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
 
 def arii_protejate():
-    """Decupeaza ariile naturale protejate pe zona tampon de 1 km a judetului si le salveaza in data/arii_protejate.gpkg."""
+    """Decupeaza si omogenizeaza ariile naturale protejate pe zona tampon de 10 km a judetului"""
     data_dir = PROJECT_ROOT / "data"
-    buffer_path = PROJECT_ROOT / "data" / "limita_judet_buffer.gpkg"
+    buffer_path = data_dir / "limita_judet_buffer.gpkg"
 
     limita = gpd.read_file(buffer_path).to_crs("EPSG:3844")
-    arii_path = PROJECT_ROOT / "raw_data"/ "Limite_arii_naturale_protejate" / "ARII_PROTEJATE_EPSG_3844.shp"
-    
+    arii_path = PROJECT_ROOT / "raw_data" / "Limite_arii_naturale_protejate" / "ARII_PROTEJATE_EPSG_3844.shp"
 
     arii_gdf = gpd.read_file(arii_path).to_crs("EPSG:3844")
     arii_clip = gpd.clip(arii_gdf, limita)
@@ -20,4 +19,6 @@ def arii_protejate():
         arii_diss = arii_clip.dissolve()
         arii_diss.to_file(data_dir / "arii_protejate.gpkg", driver="GPKG")
         return arii_diss
+
+    arii_clip.to_file(data_dir / "arii_protejate.gpkg", driver="GPKG")
     return arii_clip
