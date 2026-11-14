@@ -87,13 +87,10 @@
 #' Descarca populatia totala pe fiecare UAT din toate judetele (matricea POP107D)
 #'
 #' @param an Anul dorit (numar sau text, ex: 2025, "2025", "Anul 2025"). Implicit 2025.
-#' @param cale_iesire_csv Calea fisierului CSV de iesire. Implicit `raw_data/populatie_per_uat.csv`.
-#'   Transmite `FALSE` sau `NA` daca nu doresti scrierea CSV-ului.
 #' @param cale_iesire_xlsx Calea fisierului Excel de iesire. Implicit `raw_data/populatie_per_uat.xlsx`.
 #'   Transmite `FALSE` sau `NA` daca nu doresti scrierea fisierului Excel.
 #' @return Un `data.frame` cu coloanele: `Judet`, `SIRUTA_UAT`, `SIRUTA`, `UAT`, `An`, `Populatie`.
 descarca_populatie_uat <- function(an = 2025,
-                                   cale_iesire_csv = NULL,
                                    cale_iesire_xlsx = NULL) {
   .asigura_pachete(c("TEMPO", "writexl"))
 
@@ -165,12 +162,6 @@ descarca_populatie_uat <- function(an = 2025,
   dir_raw <- .gaseste_director_raw_data()
   if (is.null(cale_iesire_xlsx)) {
     cale_iesire_xlsx <- file.path(dir_raw, "populatie_per_uat.xlsx")
-  }
-
-  if (is.character(cale_iesire_csv) && length(cale_iesire_csv) == 1 && nzchar(cale_iesire_csv)) {
-    dir.create(dirname(cale_iesire_csv), recursive = TRUE, showWarnings = FALSE)
-    utils::write.csv(rezultat, file = cale_iesire_csv, row.names = FALSE, fileEncoding = "UTF-8")
-    message("Salvat CSV: ", cale_iesire_csv)
   }
 
   if (is.character(cale_iesire_xlsx) && length(cale_iesire_xlsx) == 1 && nzchar(cale_iesire_xlsx)) {
