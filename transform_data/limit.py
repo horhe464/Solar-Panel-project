@@ -5,7 +5,6 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
 
 def limit(nume_j: str, buffer_m: float = 10000):
-    """Extrage limita judetului in EPSG:3844, zona tampon de 10 km si UAT-urile judetului."""
     path = PROJECT_ROOT / "raw_data" / "Judete.gpkg"
     uat_path = PROJECT_ROOT / "raw_data" / "UAT.gpkg"
     data_dir = PROJECT_ROOT / "data"

@@ -5,7 +5,6 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
 
 def arii_protejate():
-    """Decupeaza si omogenizeaza ariile naturale protejate pe zona tampon de 10 km a judetului"""
     data_dir = PROJECT_ROOT / "data"
     buffer_path = data_dir / "limita_judet_buffer.gpkg"
 

@@ -19,9 +19,6 @@ MAIN_ROADS = [
 
 
 def osm_data():
-    """Extrage drumurile principale, caile ferate, reteaua electrica de inalta tensiune (HV),
-    statiile de transformare si poligoanele localitatilor din OSM pe zona tampon de 10 km a judetului.
-    """
     data_dir = PROJECT_ROOT / "data"
     buffer_path = data_dir / "limita_judet_buffer.gpkg"
 
@@ -93,7 +90,6 @@ def osm_data():
         statii_3844.to_file(data_dir / "statii.gpkg", driver="GPKG")
 
     if localitati is not None and not localitati.empty:
-        # Pastram doar geometriile de tip suprafata (Polygon / MultiPolygon) pentru excluderea X din Tabelul 1
         loc_3844 = localitati.to_crs("EPSG:3844")
         loc_poly = loc_3844[loc_3844.geometry.geom_type.isin(["Polygon", "MultiPolygon"])]
         if not loc_poly.empty:
